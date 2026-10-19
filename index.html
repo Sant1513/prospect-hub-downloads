@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Prospect Hub</title>
+<meta name="description" content="Install the Prospect Hub Chrome extension and helper in about 5 minutes.">
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --text: #1d1d1b; --muted: #5f5f5a; --line: #e4e4df;
+    --accent: #1f5f4a; --accent-text: #ffffff; --code: #f0f0ec; --warn-bg: #fff6e0; --warn-line: #f0d48a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --card: #1d1d1b; --text: #ecece8; --muted: #a3a39c; --line: #33332f;
+      --accent: #5fbf9c; --accent-text: #0e1c16; --code: #262623; --warn-bg: #2b2412; --warn-line: #6b5524;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 0 0 6px; }
+  p { margin: 0 0 12px; }
+  .lead { color: var(--muted); font-size: 17px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 16px; }
+  .download { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-text); text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 10px; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.steps > li { counter-increment: s; position: relative; padding: 0 0 18px 44px; }
+  ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-text); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+  ol.steps > li:last-child { padding-bottom: 0; }
+  code, .path { background: var(--code); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font: 14px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace; overflow-wrap: anywhere; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+  .tabs button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .note { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+  .copy { font: inherit; font-size: 13px; margin-left: 6px; padding: 2px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; }
+  details { border-top: 1px solid var(--line); padding: 12px 0 0; margin-top: 12px; }
+  summary { cursor: pointer; font-weight: 600; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 28px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Install Prospect Hub</h1>
+  <p class="lead">Capture the people on a LinkedIn search page with one click, and keep one shared, de-duplicated list for the team. Setup takes about 5 minutes.</p>
+
+  <section class="card download" aria-labelledby="dl">
+    <div>
+      <h2 id="dl">1. Download</h2>
+      <p class="meta">Version 0.2.2 · Windows, Mac, Linux · no account needed</p>
+    </div>
+    <a class="btn" href="https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip">Download Prospect Hub setup (.zip)</a>
+  </section>
+
+  <section class="card" aria-labelledby="need">
+    <h2 id="need">Before you start</h2>
+    <p>You need <strong>Google Chrome</strong> and <strong>Node.js 24 or newer</strong>. Check Node by running <code>node -v</code> in a terminal. If it's missing, install the "LTS" version from <a href="https://nodejs.org/en/download">nodejs.org</a>. The Windows setup opens that page for you if needed.</p>
+  </section>
+
+  <section class="card" aria-labelledby="run">
+    <h2 id="run">2. Run setup</h2>
+    <div class="tabs" role="tablist" aria-label="Operating system">
+      <button role="tab" id="t-win" aria-selected="true" aria-controls="p-win">Windows</button>
+      <button role="tab" id="t-mac" aria-selected="false" aria-controls="p-mac">Mac / Linux</button>
+    </div>
+    <div role="tabpanel" id="p-win" aria-labelledby="t-win">
+      <ol class="steps">
+        <li>Right-click the downloaded zip, choose <strong>Extract All…</strong>, then click <strong>Extract</strong>.</li>
+        <li>In the extracted folder, double-click <strong>setup.cmd</strong>. If Windows shows "Windows protected your PC", click <em>More info → Run anyway</em>.</li>
+        <li>Setup installs the helper, which keeps your data on this computer and syncs it to the team. It then opens three things for the next step: the helper page, the extension folder, and <code>chrome://extensions</code>.</li>
+      </ol>
+    </div>
+    <div role="tabpanel" id="p-mac" aria-labelledby="t-mac" hidden>
+      <ol class="steps">
+        <li>Unzip the download, open a terminal in that folder, and run <code>bash setup.sh</code></li>
+        <li>Setup installs the helper as a background service and opens the helper page and the extension folder.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="chrome">
+    <h2 id="chrome">3. Add the extension to Chrome</h2>
+    <ol class="steps">
+      <li>Open <code>chrome://extensions</code> <button class="copy" data-copy="chrome://extensions">Copy</button> (Chrome blocks links to it, so paste it into the address bar).</li>
+      <li>Turn on <strong>Developer mode</strong> (switch at the top right).</li>
+      <li>Click <strong>Load unpacked</strong> and choose this folder:
+        <br><span class="path">Windows: %LOCALAPPDATA%\ProspectHub\extension</span>
+        <br><span class="path">Mac: ~/Library/Application Support/ProspectHub/extension</span></li>
+      <li>Click the puzzle icon in the toolbar, pin <strong>Prospect Hub</strong>, then click it to open the side panel.</li>
+    </ol>
+  </section>
+
+  <section class="card" aria-labelledby="connect">
+    <h2 id="connect">4. Connect to your team</h2>
+    <ol class="steps">
+      <li>In the side panel, enter the <strong>pairing code</strong> shown at <a href="http://127.0.0.1:47615/">http://127.0.0.1:47615/</a>. That page only works on your own computer once setup has run.</li>
+      <li>Ask your admin for a one-time <strong>enrollment code</strong>.</li>
+      <li>Side panel → <strong>Settings → Enroll</strong>. Master URL: <code>https://abhishesh.tail66d6e3.ts.net:8443</code> <button class="copy" data-copy="https://abhishesh.tail66d6e3.ts.net:8443">Copy</button>. Then enter the code.</li>
+    </ol>
+  </section>
+
+  <section class="card" aria-labelledby="use">
+    <h2 id="use">5. Use it</h2>
+    <ol class="steps">
+      <li>On LinkedIn, run a <strong>people search</strong> with any filters.</li>
+      <li>Side panel → <strong>Collect → LinkedIn page → Capture people on this page</strong>.</li>
+      <li>Check the list (new people are pre-selected, and people the team already has are marked), then click <strong>Save</strong>.</li>
+      <li>Go to the next results page on LinkedIn and capture again.</li>
+    </ol>
+    <p class="note">LinkedIn's terms restrict tools that copy data from its pages, and LinkedIn may limit accounts that use them. Prospect Hub reads only what is on your screen, and only when you click. It never scrolls, changes pages or opens profiles for you.</p>
+    <details>
+      <summary>Updating to a new version</summary>
+      <p>When the side panel says <em>Update available</em>, download the setup zip again from this page and run setup again. Then click the reload icon on Prospect Hub in <code>chrome://extensions</code>. Your saved data is kept.</p>
+    </details>
+    <details>
+      <summary>Uninstalling</summary>
+      <p>Remove the extension in <code>chrome://extensions</code>. Then, in the <code>helper-app</code> folder, run <code>node install-service.mjs --remove</code>. Local data lives next to it (<code>helper</code> folder). Delete it only after the Sync tab shows nothing pending.</p>
+    </details>
+    <details>
+      <summary>Something isn't working</summary>
+      <p><strong>"Helper not running":</strong> run setup again, or restart the computer. <strong>Offline in the Sync tab:</strong> your data is safe on this computer and syncs automatically when the master is back. <strong>Capture finds nobody:</strong> wait for the results to load, scroll through them once, then capture again.</p>
+    </details>
+  </section>
+
+  <footer>Version 0.2.2 · <a href="https://github.com/Sant1513/prospect-hub-downloads/releases/latest">All downloads and versions</a></footer>
+</main>
+<script>
+  // OS tabs (Windows first; switch to Mac/Linux automatically on those systems).
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const select = (t) => tabs.forEach((x) => {
+    const on = x === t;
+    x.setAttribute('aria-selected', String(on));
+    document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+  });
+  tabs.forEach((t) => t.addEventListener('click', () => select(t)));
+  if (/Mac|Linux/i.test(navigator.platform) && !/Win/i.test(navigator.platform)) select(document.getElementById('t-mac'));
+  // Copy buttons.
+  document.querySelectorAll('.copy').forEach((b) => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy'), 1500); } catch {}
+  }));
+</script>
+</body>
+</html>
