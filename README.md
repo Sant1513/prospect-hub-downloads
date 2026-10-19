@@ -1,6 +1,8 @@
 # Prospect Hub: team downloads
 
-**Latest version: v0.2.1**. Download it from [Releases → latest](https://github.com/Sant1513/prospect-hub-downloads/releases/latest).
+## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
+
+**Latest version: v0.2.2**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -8,7 +10,9 @@ This repository holds only the built files; the source code is private.
 
 # Prospect Hub: install and update (team members)
 
-Downloads: **https://github.com/Sant1513/prospect-hub-downloads/releases/latest**. No GitHub account is needed.
+**Install guide with download button: https://sant1513.github.io/prospect-hub-downloads/**. No GitHub account is needed.
+
+Quick version: download **prospect-hub-setup.zip** and extract it. On Windows, double-click **setup.cmd**; on Mac/Linux, run `bash setup.sh`. Then follow "Extension" step 2 and "Connect" below.
 
 You need **Google Chrome**, plus **Node.js 24 or newer** for the helper (from https://nodejs.org, the "LTS" or "Current" installer).
 
