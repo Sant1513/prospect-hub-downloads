@@ -10,30 +10,61 @@ This repository holds only the built files; the source code is private.
 
 # Prospect Hub: install and update (team members)
 
-**Install guide with download button: https://sant1513.github.io/prospect-hub-downloads/**. No GitHub account is needed.
+**Install guide with copy buttons: https://sant1513.github.io/prospect-hub-downloads/**. No GitHub account is needed.
 
-Quick version: download **prospect-hub-setup.zip** and extract it. On Windows, double-click **setup.cmd**; on Mac/Linux, run `bash setup.sh`. Then follow "Extension" step 2 and "Connect" below.
+You need **Google Chrome**, plus **Node.js 24 or newer** (from https://nodejs.org, the "LTS" installer). Check with `node -v` in a terminal.
 
-You need **Google Chrome**, plus **Node.js 24 or newer** for the helper (from https://nodejs.org, the "LTS" or "Current" installer).
+## 1. Install the helper
 
-## First install (about 5 minutes)
+The helper keeps your data on this computer and syncs it to the team.
 
-1. **Download** `prospect-hub-helper-<version>.zip` and `prospect-hub-extension-<version>.zip` from the link above.
-2. **Helper (keeps your data on this computer and syncs it to the team):**
-   1. Unzip the helper into a folder you'll keep, e.g. `Documents\ProspectHub\helper`.
-   2. In that folder, open a terminal and run:
-      ```
-      node install-service.mjs
-      ```
-      It starts now and every time you sign in to the computer. Check it by opening http://127.0.0.1:47615/ in Chrome; the page shows a **pairing code**.
-3. **Extension:**
-   1. Unzip the extension into a folder you'll keep, e.g. `Documents\ProspectHub\extension`.
-   2. In Chrome, open `chrome://extensions`, turn on **Developer mode** (top right), click **Load unpacked**, and select that folder.
-   3. Pin **Prospect Hub** (puzzle-piece icon) and click it to open the side panel.
-4. **Connect:**
-   1. In the side panel, enter the pairing code from http://127.0.0.1:47615/.
-   2. Get a one-time **enrollment code** from the owner (Dashboard → Sync → Add a helper device).
-   3. Side panel → **Settings → Enroll**. Master URL: `https://abhishesh.tail66d6e3.ts.net:8443`. Enter the code.
+### Windows (recommended: paste one command)
+
+This works even when **Smart App Control** blocks downloaded files. Open **PowerShell** (Start → type `PowerShell` → Enter), paste everything below, and press **Enter**:
+
+```powershell
+$ErrorActionPreference = 'Stop'
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) { Start-Process 'https://nodejs.org/en/download'; throw 'Install Node.js (LTS), then paste this again.' }
+if ([int](node -p "process.versions.node.split('.')[0]") -lt 24) { Start-Process 'https://nodejs.org/en/download'; throw 'Node.js 24 or newer is needed. Install it, then paste this again.' }
+$zip = "$env:TEMP\prospect-hub-setup.zip"; $tmp = "$env:TEMP\prospect-hub-setup"; $app = "$env:LOCALAPPDATA\ProspectHub"
+Invoke-WebRequest 'https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip' -OutFile $zip -UseBasicParsing
+Expand-Archive $zip $tmp -Force
+Get-ChildItem $tmp -Recurse | Unblock-File
+if (Test-Path "$app\helper-app\install-service.mjs") { node "$app\helper-app\install-service.mjs" --remove }
+New-Item -ItemType Directory -Force "$app\helper-app", "$app\extension" | Out-Null
+Copy-Item "$tmp\Prospect Hub setup\helper\*" "$app\helper-app" -Recurse -Force
+Copy-Item "$tmp\Prospect Hub setup\extension\*" "$app\extension" -Recurse -Force
+node "$app\helper-app\install-service.mjs"
+Start-Sleep 3; Start-Process 'http://127.0.0.1:47615/'; explorer "$app\extension"
+Write-Host "Done. In Chrome: chrome://extensions > Developer mode ON > Load unpacked > $app\extension" -ForegroundColor Green
+```
+
+It installs the helper so it starts at every sign-in, then opens the helper page (which shows your **pairing code**) and the extension folder.
+
+**If the helper page doesn't open:** Smart App Control may have blocked the start-at-sign-in entry. Start the helper by hand and keep that PowerShell window open while you use the extension:
+
+```powershell
+node "$env:LOCALAPPDATA\ProspectHub\helper-app\helper.mjs"
+```
+
+**Alternative (only when Smart App Control is off):** download `prospect-hub-setup.zip`, extract it, and double-click `setup.cmd`.
+
+### Mac / Linux
+
+Download `prospect-hub-setup.zip` from the install guide, unzip it, open a terminal in that folder, and run `bash setup.sh`.
+
+## 2. Add the extension to Chrome
+
+1. Open `chrome://extensions` (paste it into the address bar).
+2. Turn on **Developer mode** (top right).
+3. Click **Load unpacked** and choose `%LOCALAPPDATA%\ProspectHub\extension` (Windows) or `~/Library/Application Support/ProspectHub/extension` (Mac).
+4. Pin **Prospect Hub** (puzzle-piece icon) and click it to open the side panel.
+
+## 3. Connect to the team
+
+1. In the side panel, enter the pairing code from http://127.0.0.1:47615/.
+2. Get a one-time **enrollment code** from the owner (Dashboard → Sync → Add a helper device).
+3. Side panel → **Settings → Enroll**. Master URL: `https://abhishesh.tail66d6e3.ts.net:8443`. Enter the code.
 
 ## Daily use
 
@@ -50,11 +81,10 @@ Everything is saved on your computer right away. It syncs to the team database w
 
 When the side panel shows **Update available**:
 
-1. Download the new zips from the link above.
-2. **Extension:** unzip over your extension folder (replace the files), then in `chrome://extensions` click the **reload** icon on Prospect Hub.
-3. **Helper:** unzip over your helper folder, then run `node install-service.mjs --remove` followed by `node install-service.mjs`. Your data stays.
+1. **Windows:** paste the same PowerShell command again. **Mac/Linux:** download the new zip and run `bash setup.sh` again. Your data is kept.
+2. In `chrome://extensions`, click the **reload** icon on Prospect Hub.
 
 ## Uninstall
 
 - **Extension:** remove it in `chrome://extensions`.
-- **Helper:** run `node install-service.mjs --remove`, then delete the folder. Local data is in `%LOCALAPPDATA%\ProspectHub\helper` (Windows) or `~/Library/Application Support/ProspectHub/helper` (Mac). Delete it only after the Sync tab shows nothing pending.
+- **Helper (Windows):** run `node "$env:LOCALAPPDATA\ProspectHub\helper-app\install-service.mjs" --remove` in PowerShell, then delete `%LOCALAPPDATA%\ProspectHub`. That folder also holds your local data (`helper`), so delete it only after the Sync tab shows nothing pending.
