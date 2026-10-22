@@ -2,7 +2,7 @@
 
 ## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
 
-**Latest version: v0.2.7**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
+**Latest version: v0.2.8**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -73,7 +73,7 @@ Download `prospect-hub-setup.zip` from the install guide, unzip it, open a termi
 3. Check the list: new people are pre-selected, and people the team already saved are marked. Click **Save**.
 4. Go to the next results page on LinkedIn and capture again.
 
-Leads captured from Sales Navigator are saved with their **Sales Navigator lead link** (`https://www.linkedin.com/sales/lead/…/`), which opens for anyone with a Sales Navigator seat. Sales Navigator pages don't show the public `/in/name/` link. If you need public links, capture from a regular LinkedIn people search instead. The same person captured from both is stored as two records.
+Leads captured from Sales Navigator are saved with their **Sales Navigator lead link** (`https://www.linkedin.com/sales/lead/…/`), which opens for anyone with a Sales Navigator seat. Sales Navigator pages don't show the public `/in/name/` link. **To get a lead's public link:** open the lead in Sales Navigator, then in the side panel click **Get public link**. If Sales Navigator hides it, follow the panel's instructions: click "View LinkedIn profile", and on the profile page click **Use this page**. Exports then show the public link in "LinkedIn Profile URL" and keep the Sales Navigator link in its own column. The same person captured from both searches is stored as two records.
 
 Everything is saved on your computer right away. It syncs to the team database whenever the master is reachable, even if you were offline. The **Sync** tab shows the status.
 
