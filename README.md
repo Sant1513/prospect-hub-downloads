@@ -2,7 +2,7 @@
 
 ## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
 
-**Latest version: v0.2.4**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
+**Latest version: v0.2.5**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -73,7 +73,7 @@ Download `prospect-hub-setup.zip` from the install guide, unzip it, open a termi
 3. Check the list: new people are pre-selected, and people the team already saved are marked. Click **Save**.
 4. Go to the next results page on LinkedIn and capture again.
 
-Sales Navigator pages don't include the public profile link, so those leads are saved with their Sales Navigator lead link (it opens in Sales Navigator). The same person captured from regular LinkedIn search is stored separately.
+Leads captured from Sales Navigator are saved as a regular LinkedIn profile link, `https://www.linkedin.com/in/ACwAA…/`, which opens the person's profile for anyone signed in to LinkedIn. Sales Navigator doesn't show the readable `/in/name/` link, so the same person captured from regular LinkedIn search is stored as a separate record.
 
 Everything is saved on your computer right away. It syncs to the team database whenever the master is reachable, even if you were offline. The **Sync** tab shows the status.
 
