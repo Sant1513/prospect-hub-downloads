@@ -2,7 +2,7 @@
 
 ## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
 
-**Latest version: v0.3.0**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
+**Latest version: v0.3.1**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -75,7 +75,9 @@ Download `prospect-hub-setup.zip` from the install guide, unzip it, open a termi
 
 Leads captured from Sales Navigator are saved with their **Sales Navigator lead link** (`https://www.linkedin.com/sales/lead/…/`), which opens for anyone with a Sales Navigator seat. Sales Navigator pages don't show the public `/in/name/` link. **To get a lead's public link:** open the lead in Sales Navigator, then in the side panel click **Get public link**. If Sales Navigator hides it, follow the panel's instructions: click "View LinkedIn profile", and on the profile page click **Use this page**. Exports then show the public link in "LinkedIn Profile URL" and keep the Sales Navigator link in its own column. The same person captured from both searches is stored as two records.
 
-Everything is saved on your computer right away. It syncs to the team database whenever the master is reachable, even if you were offline, and the team Google Sheet updates within a minute after that. The bar at the top of **Collect** shows how many changes are still waiting on your laptop. Click **Sync now** to send them immediately. If it says it **can't reach the master**, check your internet connection and ask the owner whether the master PC is on and awake. Nothing is lost; it sends as soon as the master is back. Sync never creates duplicate rows in the sheet: each person has one row, matched by Record ID.
+Everything is saved on your computer right away. It syncs to the team database whenever the master is reachable, even if you were offline, and the team Google Sheet updates within a minute after that. The bar at the top of **Collect** shows how many changes are still waiting on your laptop. Click **Sync now** to send them immediately. If it says it **can't reach the master**, check your internet connection and ask the owner whether the master PC is on and awake. Nothing is lost; it sends as soon as the master is back. Sync never creates duplicate rows in the sheet: each person has one row, matched by Record ID. The bar also has an **Open team sheet** link.
+
+**Download a CSV of the team's prospects:** side panel → **Export**. Pick dates (Today, Yesterday, Last 7 days, or your own range), **Sourced by** (a teammate and laptop, or everyone), the source (LinkedIn or Sales Navigator), connection degree, a word to search for, or only Sales Navigator leads still missing a public link. Then click **Download CSV**. It has the same columns as the sheet, with each person once. This needs the master to be reachable. The **Saved** tab's *Export CSV* still works offline and exports this laptop's copy.
 
 > LinkedIn's terms restrict tools that copy data from its pages, and LinkedIn can limit accounts that use them. Capture reads only what is on your screen, and only when you click. It never scrolls, pages or opens profiles for you.
 
