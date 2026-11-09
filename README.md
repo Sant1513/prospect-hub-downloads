@@ -2,7 +2,7 @@
 
 ## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
 
-**Latest version: v0.3.1**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
+**Latest version: v0.3.2**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -74,6 +74,8 @@ Download `prospect-hub-setup.zip` from the install guide, unzip it, open a termi
 4. Go to the next results page on LinkedIn and capture again.
 
 Leads captured from Sales Navigator are saved with their **Sales Navigator lead link** (`https://www.linkedin.com/sales/lead/…/`), which opens for anyone with a Sales Navigator seat. Sales Navigator pages don't show the public `/in/name/` link. **To get a lead's public link:** open the lead in Sales Navigator, then in the side panel click **Get public link**. If Sales Navigator hides it, follow the panel's instructions: click "View LinkedIn profile", and on the profile page click **Use this page**. Exports then show the public link in "LinkedIn Profile URL" and keep the Sales Navigator link in its own column. The same person captured from both searches is stored as two records.
+
+**Fill in many public links quickly (needs a Sales Navigator seat):** on a LinkedIn tab, open **Collect → LinkedIn page**. The blue box shows how many Sales Navigator leads are missing a public link, team-wide. Each click of **Next lead** opens one lead in that tab, reads its "View LinkedIn profile" link and saves it for everyone, so it shows up in the sheet and in exports. If a lead has no link, it is skipped on this computer (you can try skipped leads again later). Nothing opens on its own: every lead is one click.
 
 Everything is saved on your computer right away. It syncs to the team database whenever the master is reachable, even if you were offline, and the team Google Sheet updates within a minute after that. The bar at the top of **Collect** shows how many changes are still waiting on your laptop. Click **Sync now** to send them immediately. If it says it **can't reach the master**, check your internet connection and ask the owner whether the master PC is on and awake. Nothing is lost; it sends as soon as the master is back. Sync never creates duplicate rows in the sheet: each person has one row, matched by Record ID. The bar also has an **Open team sheet** link.
 
