@@ -2,7 +2,7 @@
 
 ## 👉 [Install guide (start here)](https://sant1513.github.io/prospect-hub-downloads/)
 
-**Latest version: v0.3.4**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
+**Latest version: v0.4.0**. [Download the setup zip](https://github.com/Sant1513/prospect-hub-downloads/releases/latest/download/prospect-hub-setup.zip): on Windows run setup.cmd; on Mac/Linux run bash setup.sh.
 
 This repository holds only the built files; the source code is private.
 
@@ -72,6 +72,8 @@ Download `prospect-hub-setup.zip` from the install guide, unzip it, open a termi
 2. Side panel → **Collect → LinkedIn page → Capture people on this page**.
 3. Check the list: new people are pre-selected, and people the team already saved are marked. Click **Save**.
 4. Go to the next results page on LinkedIn and capture again.
+
+**Status and tags:** open a saved person (side panel → **Saved** → the person) and set a **Status** (New, Contacted, Replied, Interested, Not relevant, Closed) and up to 10 **Tags** (for example `l&d head`, `pune`). They sync to the team, show in the Google Sheet (columns R and S) and in every CSV download, and **Saved** can filter by status or tag. On the dashboard, Profiles can filter the same way and set the status of many selected people at once. If two people change the same field, the later change wins.
 
 **Capturing a company's people:** open the company's LinkedIn page → **People** tab (`linkedin.com/company/<name>/people/`). Scroll down and click **Show more results** until everyone you want is listed (Capture only reads the cards already loaded), then use the same **Capture people on this page** button. Company cards usually show a headline but no location.
 
